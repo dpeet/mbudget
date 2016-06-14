@@ -1,0 +1,92 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agility Tracks</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+    <!-- Latest compiled and minified JavaScript
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    -->
+</head>
+
+<template name="MasterLayout">
+    <header>
+        {{#if isMobile}}
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <ul class="nav navbar-nav mobile-bar">
+                    {{#if currentUser}}
+                    <li class="navlink">{{#linkTo route="dogsList"}}
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa-paw fa-stack-1x"></i>
+                            <strong class="fa-stack-1x header-text text-centered">Dog</strong>
+                        </span>
+                        {{/linkTo}}
+                    </li>
+                    <li class="navlink">{{#linkTo route="runsList"}}
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa fa-flag fa-stack-1x"></i>
+                            <strong class="fa-stack-1x header-text text-centered">Runs</strong>
+                        </span> {{/linkTo}}
+                    </li>
+                    <li class="navlink">{{#linkTo route="summary"}}
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa fa-tasks fa-stack-1x"></i>
+                            <strong class="fa-stack-1x header-text text-centered">Summary</strong>
+                        </span> {{/linkTo}}
+                    </li>
+                    {{/if}}
+                    <li class="navlink">{{#linkTo route="support"}}
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa-life-ring fa-stack-1x"></i>
+                            <strong class="fa-stack-1x header-text text-centered">Support</strong>
+                        </span> {{/linkTo}}
+                    </li>
+                    <li class="navlink">{{#linkTo route="account_settings"}}
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa fa-cog fa-stack-1x"></i>
+                            <strong class="fa-stack-1x header-text text-centered">Account</strong>
+                        </span> {{/linkTo}}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {{else}}
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    {{#linkTo route="home"}}<a class="navbar-brand">Agility Tracks</a>{{/linkTo}}
+                </div>
+                <ul class="nav navbar-nav">
+                    {{#if currentUser}}
+                    <li class="navlink">{{#linkTo route="dogsList"}}<i class="fa fa-paw"></i> Dogs{{/linkTo}}</li>
+                    <li class="navlink">{{#linkTo route="runsList"}}<i class="fa fa-flag"></i> Runs{{/linkTo}}</li>
+                    <li class="navlink">{{#linkTo route="insertRun"}}<i class="fa fa-plus"></i> New Run{{/linkTo}}</li>
+                    <li class="navlink">{{#linkTo route="summary"}}<i class="fa fa-tasks"></i> Summary{{/linkTo}}</li>
+                    {{/if}}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="navlink">{{#linkTo route="account_settings"}}<i class="fa fa-cog"></i> Account{{/linkTo}}</li>
+                </ul>
+            </div>
+        </nav>
+        {{/if}}
+
+    </header>
+
+    <div id="mainPanel" class="container">
+        {{> yield}}
+        {{> meteorStatus}}
+    </div>
+    <div class="footer_offset">
+    </div>
+    <footer>
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <div class="container">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://beta.thedogsplace.us/">Agility Tracks</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </footer>
+</template>
+
