@@ -1,14 +1,18 @@
+255kb:meteor-status@1.4.3
 accounts-base@1.2.7
 accounts-password@1.1.8
 aldeed:autoform@5.8.1
+aldeed:autoform-select2@2.0.2
 aldeed:collection2@2.9.1
 aldeed:collection2-core@1.1.1
 aldeed:delete-button@2.0.0
 aldeed:schema-deny@1.0.1
 aldeed:schema-index@1.0.1
 aldeed:simple-schema@1.5.3
+aldeed:template-extension@3.4.3
 allow-deny@1.0.4
 anthonyastige:ground-autoform@0.0.6
+anti:i18n@0.4.3
 autoupdate@1.2.9
 babel-compiler@6.6.4
 babel-runtime@0.1.8
@@ -22,6 +26,9 @@ caching-compiler@1.0.4
 caching-html-compiler@1.0.6
 callback-hook@1.0.8
 check@1.2.1
+coffeescript@1.0.17
+comerc:autoform-typeahead@1.0.6
+comerc:bs-typeahead@1.0.2
 ddp@1.2.5
 ddp-client@1.2.7
 ddp-common@1.2.5
@@ -51,6 +58,7 @@ hot-code-push@1.0.4
 html-tools@1.0.9
 htmljs@1.0.9
 http@1.1.5
+ian:accounts-ui-bootstrap-3@1.2.89
 id-map@1.0.7
 iron:controller@1.0.12
 iron:core@1.0.11
@@ -65,6 +73,7 @@ launch-screen@1.0.11
 livedata@1.0.18
 localstorage@1.0.9
 logging@1.0.12
+mbanting:cordova-accounts-resume@1.0.0
 mdg:validation-error@0.2.0
 meteor@1.1.14
 meteor-base@1.0.4
@@ -96,6 +105,7 @@ mongo@1.1.7
 mongo-id@1.0.4
 msavin:jetsetter@2.0.0
 msavin:mongol@2.0.1
+natestrauser:select2@4.0.2
 npm-bcrypt@0.8.5
 npm-mongo@1.4.43
 observe-sequence@1.0.11
@@ -115,12 +125,16 @@ sacha:spin@2.3.1
 service-configuration@1.0.9
 session@1.1.5
 sha@1.0.7
+simply:reactive-local-storage@1.0.0
+skinnygeek1010:cordova-status@0.2.0
+softwarerero:accounts-t9n@1.3.4
 spacebars@1.0.11
 spacebars-compiler@1.0.11
 srp@1.0.8
 standard-app-packages@1.0.9
 standard-minifier-css@1.0.6
 standard-minifier-js@1.0.6
+stylus@2.511.5
 templating@1.1.9
 templating-tools@1.0.4
 tracker@1.0.13
@@ -128,5 +142,7 @@ twbs:bootstrap@3.3.6
 ui@1.0.11
 underscore@1.0.8
 url@1.0.9
+useraccounts:bootstrap@1.14.2
+useraccounts:core@1.14.2
 webapp@1.2.8
 webapp-hashing@1.0.9

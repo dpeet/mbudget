@@ -18,6 +18,7 @@ es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 
+255kb:meteor-status
 accounts-password
 ground:db
 iron:router
@@ -32,3 +33,12 @@ fortawesome:fontawesome
 erasaur:server-session
 sacha:spin
 email
+mbanting:cordova-accounts-resume
+ian:accounts-ui-bootstrap-3
+useraccounts:bootstrap
+simply:reactive-local-storage
+comerc:bs-typeahead
+comerc:autoform-typeahead
+natestrauser:select2
+aldeed:autoform-select2
+
