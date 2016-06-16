@@ -1,6 +1,6 @@
-BudgetItems = new Mongo.Collection('budgetItem');
+Transactions = new Mongo.Collection('transactions');
 
-BudgetItems.attachSchema(new SimpleSchema({
+Transactions.attachSchema(new SimpleSchema({
     createdBy: {
         type: String,
         autoValue: function () {
@@ -10,8 +10,50 @@ BudgetItems.attachSchema(new SimpleSchema({
             omit: true
         }
     },
-    Name:{
+    Card:{  //TODO think about how to do this
         type:String,
+        label: "Card*"
+    },
+    TransactionDate: {
+        type: Date,
+        label: "Date*",
+        autoValue: function() {
+            if(this.isSet){
+                return this.value;
+            } else {
+                return new Date();
+            }
+        },
+        autoform: {
+            afFieldInput: {
+                type: "bootstrap-datepicker"
+            }
+        }
+    },
+    EffectiveDate: {
+        type: Date,
+        label: "Date*",
+        autoValue: function() {
+            if(this.isSet){
+                return this.value;
+            } else {
+                return new Date();
+            }
+        },
+        autoform: {
+            afFieldInput: {
+                type: "bootstrap-datepicker"
+            }
+        }
+    },
+    Description:{
+        type:String,
+        label: "Description*"
+    },
+    Cost:{
+        type:Number,
+        decimal: true,
+        defaultValue: 0,
     },
     Tags: {
         type: [String],
@@ -36,7 +78,7 @@ BudgetItems.attachSchema(new SimpleSchema({
             },
         }
     },
-    
+
     Notes:{
         type:String,
         optional:true,
@@ -46,11 +88,11 @@ BudgetItems.attachSchema(new SimpleSchema({
         decimal: true,
         defaultValue: 0,
     },
-    //TODO Calculated Stuff
+    //TODO Insert Schemas
 }));
 
 if (Meteor.isServer){
-    BudgetItems.allow({
+    Transactions.allow({
         insert: function (userId, doc) {
             return true;
         },
@@ -64,6 +106,5 @@ if (Meteor.isServer){
 }
 
 if (Meteor.isClient) {
-    Ground.Collection(BudgetItems);
-    Ground.Collection(Meteor.users);
+    Ground.Collection(Transactions);
 }

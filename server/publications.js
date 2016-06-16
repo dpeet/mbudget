@@ -15,3 +15,12 @@ Meteor.publish('user_data', function () {
     }
     return User_Data.find({createdBy: currentUserId})
 });
+
+Meteor.publish('Transactions', function () {
+    var currentUserId = this.userId;
+    if (!this.userId) {
+        this.ready();
+        return;
+    }
+    return Transactions.find({createdBy: currentUserId})
+});
