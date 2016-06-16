@@ -1,0 +1,45 @@
+<template name="BudgetList">
+    <div class="container">
+        <h1 class="pull-left">Budget</h1>
+        <div class="btn btn-primary pull-right newbtn">
+            {{#linkTo route="insertBudgetItem"}}
+                <i class="fa fa-plus white"> New Budget Item</i>
+            {{/linkTo}}
+        </div>
+        <!--<div class="container-fluid">-->
+            <!--{{> takePhoto}}-->
+        <!--</div>-->
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Tags</th>
+                <th>Notes</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each budgetItems}}
+                <tr>
+                    <td class="budgetItem">{{Name}}</td>
+                    <td class="budgetItem">{{Tags}}</td>
+                    <td class="budgetItem">{{Notes}}</td>
+                    <td class="budgetItem">{{Amount}}</td>
+
+                    <td>
+                        {{#linkTo route="editBudgetItem"}}
+                            <i class="fa fa-pencil-square-o"> Edit</i>
+                        {{/linkTo}}
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<template name="takePhoto">
+    <p><input type="button" class="capture" value="Take Photo"></p>
+    <p><img src="{{photo}}"></p>
+</template>

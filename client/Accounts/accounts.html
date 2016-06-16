@@ -1,0 +1,29 @@
+<template name="account_settings">
+    <div class="container">
+        <h2>Account Settings</h2>
+        {{#if currentUser}}
+            <div class="col-12">
+                <h3 class="center-text">Welcome Back!</h3>
+                <h4 class="center-text">You are signed in as</h4>
+                <h4 class="center-text"><i>{{Email}}</i></h4>
+            </div>
+
+            <div class="col-md-2 col-md-offset-5">
+                {{> atNavButton}}
+            </div>
+            <hr>
+
+            <div class="col-md-6 col-md-offset-3">
+                {{> atForm state='resetPwd'}}
+            </div>
+            <hr>
+
+        {{else}}
+            <div class="col-md-6 col-md-offset-3">
+                {{> atForm}}
+            </div>
+        {{/if}}
+        <!--TODO FUTURE this does not allow for users to change email addresses-->
+        <!--TODO FUTURE create a place for users to clean up their personal Tags collections-->
+    </div>
+</template>
