@@ -1,9 +1,9 @@
-<template name="BudgetList">
+<template name="TransactionList">
     <div class="container">
-        <h1 class="pull-left">Budget</h1>
+        <h1 class="pull-left">Transaction</h1>
         <div class="btn btn-primary pull-right newbtn">
-            {{#linkTo route="insertBudgetItem"}}
-                <i class="fa fa-plus white"> New Budget Item</i>
+            {{#linkTo route="insertTransaction"}}
+                <i class="fa fa-plus white"> New Transaction</i>
             {{/linkTo}}
         </div>
         <!--<div class="container-fluid">-->
@@ -20,15 +20,15 @@
             </tr>
             </thead>
             <tbody>
-            {{#each budgetItems}}
+            {{#each transactions}}
                 <tr>
-                    <td class="budgetItem">{{Name}}</td>
-                    <td class="budgetItem">{{Tags}}</td>
-                    <td class="budgetItem">{{Notes}}</td>
-                    <td class="budgetItem">{{Amount}}</td>
+                    <td class="transaction">{{Name}}</td>
+                    <td class="transaction">{{Tags}}</td>
+                    <td class="transaction">{{Notes}}</td>
+                    <td class="transaction">{{Amount}}</td>
 
                     <td>
-                        {{#linkTo route="editBudgetItem"}}
+                        {{#linkTo route="editTransaction"}}
                             <i class="fa fa-pencil-square-o"> Edit</i>
                         {{/linkTo}}
                     </td>
