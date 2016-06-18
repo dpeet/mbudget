@@ -39,6 +39,15 @@
     padding: 15px;
 }
 
+.totals{
+    padding-left: 20px;
+
+}
+
+.money_right_align{
+    text-align: right;
+}
+
 
 .navbar-inverse .navbar-brand {
     color: white;

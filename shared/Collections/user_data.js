@@ -4,6 +4,15 @@ User_Data.attachSchema(new SimpleSchema({
     createdBy: {
         type: String,
     },
+    Cards: {
+        type: [String],
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: "text"
+            }
+        }
+    },
     Tags: {
         type: [String],
         optional: true,
@@ -38,6 +47,19 @@ if (Meteor.isServer) {
             }
         },
         removeTag: function (label, value, userID) {
+            if (!(value == null)) {
+                console.log("removing location " + label + " " + value);
+                return User_Data.update({createdBy: Meteor.userId()}, {$pull: {Tags: value}})
+            }
+        },
+        addCard: function (label, value) {
+
+            if (value != null) {
+                console.log("adding Tag " + label + " " + value);
+                User_Data.update({createdBy: Meteor.userId()}, {$push: {Tags: value}})
+            }
+        },
+        removeCard: function (label, value, userID) {
             if (!(value == null)) {
                 console.log("removing location " + label + " " + value);
                 return User_Data.update({createdBy: Meteor.userId()}, {$pull: {Tags: value}})
