@@ -7,25 +7,32 @@
             {{/linkTo}}
         </div>
         <!--<div class="container-fluid">-->
-            <!--{{> takePhoto}}-->
+        <!--{{> takePhoto}}-->
         <!--</div>-->
+        <hr>
+        <h3 class="pull-left">Incomes</h3>
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>Name</th>
+                <th>Type</th>
                 <th>Tags</th>
                 <th>Notes</th>
                 <th>Amount</th>
+                <th>Amount To Date</th>
+
                 <th></th>
             </tr>
             </thead>
             <tbody>
-            {{#each budgetItems}}
+            {{#each budgetItemsIncome}}
                 <tr>
                     <td class="budgetItem">{{Name}}</td>
+                    <td class="budgetItem">{{Type}}</td>
                     <td class="budgetItem">{{Tags}}</td>
                     <td class="budgetItem">{{Notes}}</td>
-                    <td class="budgetItem">{{Amount}}</td>
+                    <td class="budgetItem money_right_align">{{Amount}}</td>
+                    <td class="budgetItem money_right_align">{{AmountToDate}}</td>
 
                     <td>
                         {{#linkTo route="editBudgetItem"}}
@@ -36,5 +43,43 @@
             {{/each}}
             </tbody>
         </table>
+        <h5 class="totals">    Income Total: {{IncomeTotal}};    Spent to Date: {{IncomeSpentToDate}}</h5>
+
+
+        <h3 class="pull-left">Expenses</h3>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Tags</th>
+                <th>Notes</th>
+                <th>Amount</th>
+                <th>Amount To Date</th>
+
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each budgetItemsExpense}}
+                <tr>
+                    <td class="budgetItem">{{Name}}</td>
+                    <td class="budgetItem">{{Type}}</td>
+                    <td class="budgetItem">{{Tags}}</td>
+                    <td class="budgetItem">{{Notes}}</td>
+                    <td class="budgetItem money_right_align">{{Amount}}</td>
+                    <td class="budgetItem money_right_align">{{AmountToDate}}</td>
+
+                    <td>
+                        {{#linkTo route="editBudgetItem"}}
+                            <i class="fa fa-pencil-square-o"> Edit</i>
+                        {{/linkTo}}
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+        <h5 class="totals">    Expense Total: {{ExpenseTotal}};    Spent to Date: {{ExpenseSpentToDate}}</h5>
+        <h5 class="totals">    Difference: {{Difference}};    Difference to Date: {{DifferencepentToDate}}</h5>
     </div>
 </template>

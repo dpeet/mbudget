@@ -13,6 +13,18 @@ BudgetItems.attachSchema(new SimpleSchema({
     Name:{
         type:String,
     },
+    Type:{
+        type:String,
+        autoform: {
+            options: function () {
+                return [
+                    {label: "Income", value: "Income"},
+                    {label: "Expense", value: "Expense"}
+                ];
+            }
+        }
+    },
+
     Tags: {
         type: [String],
         optional: true,

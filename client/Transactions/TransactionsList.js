@@ -1,10 +1,16 @@
-Template.BudgetList.helpers({
+Template.TransactionList.helpers({
     transactions: function () {
         return Transactions.find();
     },
+    transactionDateFormat: function () {
+        return moment(this.TransactionDate).format("MM-DD-YYYY");
+    },
+    effectiveDateFormat: function () {
+        return moment(this.EffectiveDate).format("MM-DD-YYYY");
+    },
 });
 
-Template.BudgetList.events({
+Template.TransactionList.events({
     'click .transaction': function (e) {
         var transactionId = this._id;
         Router.go('editTransaction', {_id: transactionId});

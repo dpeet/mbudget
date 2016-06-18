@@ -12,21 +12,28 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Name</th>
+                <th>Card</th>
+                <th>Transaction Date</th>
+                <th>Effective Date</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Category</th>
                 <th>Tags</th>
                 <th>Notes</th>
-                <th>Amount</th>
                 <th></th>
             </tr>
             </thead>
             <tbody>
             {{#each transactions}}
                 <tr>
-                    <td class="transaction">{{Name}}</td>
+                    <td class="transaction">{{Card}}</td>
+                    <td class="transaction">{{transactionDateFormat}}</td>
+                    <td class="transaction">{{effectiveDateFormat}}</td>
+                    <td class="transaction">{{Description}}</td>
+                    <td class="transaction">{{Cost}}</td>
+                    <td class="transaction">{{Category}}</td>
                     <td class="transaction">{{Tags}}</td>
                     <td class="transaction">{{Notes}}</td>
-                    <td class="transaction">{{Amount}}</td>
-
                     <td>
                         {{#linkTo route="editTransaction"}}
                             <i class="fa fa-pencil-square-o"> Edit</i>

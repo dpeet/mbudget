@@ -12,11 +12,20 @@ Transactions.attachSchema(new SimpleSchema({
     },
     Card:{  //TODO think about how to do this
         type:String,
-        label: "Card*"
+        label: "Card*",
+        autoform: {
+            type: "typeahead",
+            options: function () {
+                var cardsArray = User_Data.findOne(Meteor.userId, {fields: {Cards: 1}})["Cards"]
+                return cardsArray.map(function (d) {
+                    return {label: d, value: d};
+                });
+            },
+        }
     },
     TransactionDate: {
         type: Date,
-        label: "Date*",
+        label: "Transaction Date*",
         autoValue: function() {
             if(this.isSet){
                 return this.value;
@@ -32,7 +41,7 @@ Transactions.attachSchema(new SimpleSchema({
     },
     EffectiveDate: {
         type: Date,
-        label: "Date*",
+        label: "Effective Date*",
         autoValue: function() {
             if(this.isSet){
                 return this.value;
@@ -54,6 +63,21 @@ Transactions.attachSchema(new SimpleSchema({
         type:Number,
         decimal: true,
         defaultValue: 0,
+    },
+    Category:{
+        type:String,
+        autoform: {
+            type: "typeahead",
+            options: function () {
+                let budgetArray = [];
+                for(let item of BudgetItems.find().fetch()){
+                    budgetArray.push(item.Name)
+                }
+                return budgetArray.map(function (d) {
+                    return {label: d, value: d};
+                });
+            }
+        }
     },
     Tags: {
         type: [String],
@@ -82,11 +106,6 @@ Transactions.attachSchema(new SimpleSchema({
     Notes:{
         type:String,
         optional:true,
-    },
-    Amount:{
-        type:Number,
-        decimal: true,
-        defaultValue: 0,
     },
     //TODO Insert Schemas
 }));

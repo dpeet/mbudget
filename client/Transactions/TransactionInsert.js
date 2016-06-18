@@ -15,6 +15,11 @@ AutoForm.hooks({
                     Meteor.call("addTag", doc.Tags[i], doc.Tags[i]);
                 }
             }
+            var cardArray =  User_Data.findOne({},{fields: {Cards: 1}})["Cards"]
+            var hasCurrCardForm = cardArray.indexOf(doc.Card) > -1
+            if(!hasCurrCardForm){
+                Meteor.call("addCard", doc.Card,doc.Card);
+            }
             Router.go('transactionList');
         }
     }
