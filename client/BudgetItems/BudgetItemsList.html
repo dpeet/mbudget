@@ -6,6 +6,9 @@
                 <i class="fa fa-plus white"> New Budget Item</i>
             {{/linkTo}}
         </div>
+        <div class="pull-right">
+            {{upload_transactions}}
+        </div>
         <!--<div class="container-fluid">-->
         <!--{{> takePhoto}}-->
         <!--</div>-->
@@ -81,5 +84,7 @@
         </table>
         <h5 class="totals">    Expense Total: {{ExpenseTotal}};    Spent to Date: {{ExpenseSpentToDate}}</h5>
         <h5 class="totals">    Difference: {{Difference}};    Difference to Date: {{DifferencepentToDate}}</h5>
+        <hr>
+        {{> upload_budgetitems}}
     </div>
 </template>
