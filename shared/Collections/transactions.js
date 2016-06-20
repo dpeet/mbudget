@@ -41,7 +41,8 @@ Transactions.attachSchema(new SimpleSchema({
     },
     EffectiveDate: {
         type: Date,
-        label: "Effective Date*",
+        label: "Effective Date",
+        optional:true,
         autoValue: function() {
             if(this.isSet){
                 return this.value;
