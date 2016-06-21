@@ -7,7 +7,7 @@ App.info({
      author: "Dpeet",
      email: 'mbudgetadmin@gmail.com',
      website: 'mbudget.herokuapp.com',
-     version: '0.0.1'
+     version: '0.0.2'
  });
 
 // Set up resources such as icons and launch screens.

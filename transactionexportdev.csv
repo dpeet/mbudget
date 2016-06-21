@@ -1,0 +1,3 @@
+Card,TransactionDate,EffectiveDate,Description,Cost,Category,Notes
+Bank,2016-06-17T00:00:00.000Z,2016-06-18T00:00:00.000Z,SF Money,2000,Salesforce,
+Bank,2016-06-17T00:00:00.000Z,2016-06-18T00:00:00.000Z,SF Relo,5000,Salesforce,
