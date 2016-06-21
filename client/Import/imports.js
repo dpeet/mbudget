@@ -47,7 +47,6 @@ Template.upload_budgetitems.events({
         Papa.parse( event.target.files[0], {
             header: true,
             complete( results, file ) {
-                console.log(data);
                 Meteor.call( 'parseBudgetItemUpload', results.data, Meteor.userId, ( error, response ) => {
                     if ( error ) {
                         template.uploading.set( false );
