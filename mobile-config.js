@@ -1,4 +1,6 @@
- App.info({
+App.accessRule('*');
+
+App.info({
      id: 'com.devonpeet.mbudget',
      name: 'mBudget',
      description: 'mBudget, Budgeting in Meteor',
