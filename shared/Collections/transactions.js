@@ -67,6 +67,7 @@ Transactions.attachSchema(new SimpleSchema({
     },
     Category:{
         type:String,
+        optional:true,
         autoform: {
             type: "typeahead",
             options: function () {
