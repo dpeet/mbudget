@@ -1,46 +1,51 @@
 <template name="TransactionList">
     <div class="container">
-        <h1 class="pull-left">Transaction</h1>
-
-        <div class="btn btn-primary pull-right newbtn">
-            {{#linkTo route="insertTransaction"}}
-                <i class="fa fa-plus white"> New Transaction</i>
-            {{/linkTo}}
+        <div class="col-xs-12">
+            <h1 class="pull-left">Transaction</h1>
+            <div class="btn btn-primary pull-right newbtn">
+                {{#linkTo route="insertTransaction"}}
+                    <i class="fa fa-plus white"> New Transaction</i>
+                {{/linkTo}}
+            </div>
+            <br>
         </div>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Card</th>
-                <th>Transaction Date</th>
-                <th>Effective Date</th>
-                <th>Description</th>
-                <th>Cost</th>
-                <th>Category</th>
-                <th>Tags</th>
-                <th>Notes</th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each transactions}}
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-hover">
+                <thead>
                 <tr>
-                    <td class="transaction">{{Card}}</td>
-                    <td class="transaction">{{transactionDateFormat}}</td>
-                    <td class="transaction">{{effectiveDateFormat}}</td>
-                    <td class="transaction">{{Description}}</td>
-                    <td class="transaction">{{Cost}}</td>
-                    <td class="transaction">{{Category}}</td>
-                    <td class="transaction">{{Tags}}</td>
-                    <td class="transaction">{{Notes}}</td>
-                    <td>
-                        {{#linkTo route="editTransaction"}}
-                            <i class="fa fa-pencil-square-o"> Edit</i>
-                        {{/linkTo}}
-                    </td>
+                    <th>Card</th>
+                    <th>Transaction Date</th>
+                    <th>Effective Date</th>
+                    <th>Description</th>
+                    <th>Cost</th>
+                    <th>Category</th>
+                    <th>Tags</th>
+                    <th>Notes</th>
+                    <th></th>
                 </tr>
-            {{/each}}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {{#each transactions}}
+                    <tr>
+                        <td class="transaction">{{Card}}</td>
+                        <td class="transaction">{{transactionDateFormat}}</td>
+                        <td class="transaction">{{effectiveDateFormat}}</td>
+                        <td class="transaction">{{Description}}</td>
+                        <td class="transaction">{{Cost}}</td>
+                        <td class="transaction">{{Category}}</td>
+                        <td class="transaction">{{Tags}}</td>
+                        <td class="transaction">{{Notes}}</td>
+                        <td>
+                            {{#linkTo route="editTransaction"}}
+                                <i class="fa fa-pencil-square-o"> Edit</i>
+                            {{/linkTo}}
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+
         <hr>
         {{> upload_transactions}}
     </div>

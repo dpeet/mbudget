@@ -1,6 +1,6 @@
 Template.TransactionList.helpers({
     transactions: function () {
-        return Transactions.find({}, {sort: {TransactionDate: -1} });
+        return Transactions.find({}, {sort: {TransactionDate: -1, EffectiveDate: -1, Description: 1} });
     },
     transactionDateFormat: function () {
         return moment(this.TransactionDate).format("MM-DD-YYYY");

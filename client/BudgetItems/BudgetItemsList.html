@@ -1,34 +1,38 @@
 <template name="BudgetList">
     <div class="container">
-        <h1 class="pull-left">Budget</h1>
-        <div class="btn btn-primary pull-right newbtn">
-            {{#linkTo route="insertBudgetItem"}}
+        <div class="col-xs-12">
+
+            <h1 class="pull-left">Budget</h1>
+            <div class="btn btn-primary pull-right newbtn">
+                {{#linkTo route="insertBudgetItem"}}
                 <i class="fa fa-plus white"> New Budget Item</i>
-            {{/linkTo}}
-        </div>
-        <div class="pull-right">
-            {{upload_transactions}}
+                {{/linkTo}}
+            </div>
         </div>
         <!--<div class="container-fluid">-->
         <!--{{> takePhoto}}-->
         <!--</div>-->
         <hr>
-        <h3 class="pull-left">Incomes</h3>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Tags</th>
-                <th>Notes</th>
-                <th>Amount</th>
-                <th>Amount To Date</th>
+        <div class="col-xs-12">
+            <h3 class="pull-left col-xs-12">Incomes</h3>
+        </div>
+        <div class="col-xs-12 table-responsive">
 
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each budgetItemsIncome}}
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Tags</th>
+                    <th>Notes</th>
+                    <th>Amount</th>
+                    <th>Amount To Date</th>
+
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each budgetItemsIncome}}
                 <tr>
                     <td class="budgetItem">{{Name}}</td>
                     <td class="budgetItem">{{Type}}</td>
@@ -39,32 +43,37 @@
 
                     <td>
                         {{#linkTo route="editBudgetItem"}}
-                            <i class="fa fa-pencil-square-o"> Edit</i>
+                        <i class="fa fa-pencil-square-o"> Edit</i>
                         {{/linkTo}}
                     </td>
                 </tr>
-            {{/each}}
-            </tbody>
-        </table>
-        <h5 class="totals">    Income Total: {{IncomeTotal}};    Spent to Date: {{IncomeSpentToDate}}</h5>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-12">
+            <h5 class="totals "> Income Total: {{IncomeTotal}}; Spent to Date: {{IncomeSpentToDate}}</h5>
+        </div>
 
+        <div class="col-xs-12">
+            <h3 class="pull-left">Expenses</h3>
+        </div>
+        <div class="col-xs-12 table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Tags</th>
+                    <th>Notes</th>
+                    <th>Amount</th>
+                    <th>Amount To Date</th>
 
-        <h3 class="pull-left">Expenses</h3>
-        <table class="table table-hover">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Tags</th>
-                <th>Notes</th>
-                <th>Amount</th>
-                <th>Amount To Date</th>
-
-                <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            {{#each budgetItemsExpense}}
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each budgetItemsExpense}}
                 <tr>
                     <td class="budgetItem">{{Name}}</td>
                     <td class="budgetItem">{{Type}}</td>
@@ -75,16 +84,19 @@
 
                     <td>
                         {{#linkTo route="editBudgetItem"}}
-                            <i class="fa fa-pencil-square-o"> Edit</i>
+                        <i class="fa fa-pencil-square-o"> Edit</i>
                         {{/linkTo}}
                     </td>
                 </tr>
-            {{/each}}
-            </tbody>
-        </table>
-        <h5 class="totals">    Expense Total: {{ExpenseTotal}};    Spent to Date: {{ExpenseSpentToDate}}</h5>
-        <h5 class="totals">    Difference: {{Difference}};    Difference to Date: {{DifferencepentToDate}}</h5>
-        <hr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-12">
+            <h5 class="totals"> Expense Total: {{ExpenseTotal}}; Spent to Date: {{ExpenseSpentToDate}}</h5>
+            <h5 class="totals"> Difference: {{Difference}}; Difference to Date: {{DifferencepentToDate}}</h5>
+            <hr>
+        </div>
         {{> upload_budgetitems}}
     </div>
 </template>
