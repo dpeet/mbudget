@@ -8,6 +8,10 @@ Template.TransactionList.helpers({
     effectiveDateFormat: function () {
         return moment(this.EffectiveDate).format("MM-DD-YYYY");
     },
+    FormatCost:function(){
+        return (this.Cost).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+    }
 });
 
 Template.TransactionList.events({
