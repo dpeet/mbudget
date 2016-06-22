@@ -29,7 +29,7 @@ Template.upload_transactions.events({
                     if ( error ) {
                         template.uploading.set( false );
                         console.log( error.reason );
-                        Bert.alert( 'An Error has occured', 'failure', 'growl-top-right' );
+                        Bert.alert( 'An Error has occurred', 'failure', 'growl-top-right' );
                     } else {
                         template.uploading.set( false );
                         Bert.alert( 'Upload complete!', 'success', 'growl-top-right' );
@@ -51,7 +51,7 @@ Template.upload_budgetitems.events({
                     if ( error ) {
                         template.uploading.set( false );
                         console.log( error.reason );
-                        Bert.alert( 'An Error has occured', 'failure', 'growl-top-right' );
+                        Bert.alert( 'An Error has occurred', 'failure', 'growl-top-right' );
 
                     } else {
                         template.uploading.set( false );
