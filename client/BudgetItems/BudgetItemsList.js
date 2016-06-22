@@ -5,8 +5,15 @@ Template.BudgetList.helpers({
     budgetItemsExpense: function () {
         return BudgetItems.find({Type:"Expense"}, {sort: {Name: 1} });
     },
-    AmountToDate:function(){
-        return AmountToDateFunc(this.Name)
+    FormatAmount:function(){
+        return this.Amount.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    },
+    FormatAmountToDate:function(){
+        return AmountToDateFunc(this.Name).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    },
+    CurrentProgress:function(){
+        let result = AmountToDateFunc(this.Name)/parseFloat(this.Amount)*100.0
+        return result > 0 ? Math.round(result) : 0;
     },
     IncomeTotal:function(){
         return IncomeTotalFunc();

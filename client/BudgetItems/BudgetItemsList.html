@@ -27,20 +27,25 @@
                     <th>Notes</th>
                     <th>Amount</th>
                     <th>Amount To Date</th>
-
+                    <th>Progress</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 {{#each budgetItemsIncome}}
                 <tr>
-                    <td class="budgetItem">{{Name}}</td>
-                    <td class="budgetItem">{{Type}}</td>
-                    <td class="budgetItem">{{Tags}}</td>
-                    <td class="budgetItem">{{Notes}}</td>
-                    <td class="budgetItem money_right_align">{{Amount}}</td>
-                    <td class="budgetItem money_right_align">{{AmountToDate}}</td>
-
+                    <td id="budgetItem">{{Name}}</td>
+                    <td id="budgetItem">{{Type}}</td>
+                    <td id="budgetItem">{{Tags}}</td>
+                    <td id="budgetItem">{{Notes}}</td>
+                    <td id="budgetItem money_right_align">{{FormatAmount}}</td>
+                    <td id="budgetItem money_right_align">{{FormatAmountToDate}}</td>
+                    <td id="budgetItem">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{CurrentProgress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{CurrentProgress}}%">
+                                {{CurrentProgress}}%
+                            </div>
+                        </div></td>
                     <td>
                         {{#linkTo route="editBudgetItem"}}
                         <i class="fa fa-pencil-square-o"> Edit</i>
@@ -68,19 +73,25 @@
                     <th>Notes</th>
                     <th>Amount</th>
                     <th>Amount To Date</th>
-
+                    <th>Progress</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 {{#each budgetItemsExpense}}
                 <tr>
-                    <td class="budgetItem">{{Name}}</td>
-                    <td class="budgetItem">{{Type}}</td>
-                    <td class="budgetItem">{{Tags}}</td>
-                    <td class="budgetItem">{{Notes}}</td>
-                    <td class="budgetItem money_right_align">{{Amount}}</td>
-                    <td class="budgetItem money_right_align">{{AmountToDate}}</td>
+                    <td id="budgetItem">{{Name}}</td>
+                    <td id="budgetItem">{{Type}}</td>
+                    <td id="budgetItem">{{Tags}}</td>
+                    <td id="budgetItem">{{Notes}}</td>
+                    <td id="budgetItem money_right_align">{{FormatAmount}}</td>
+                    <td id="budgetItem money_right_align">{{FormatAmountToDate}}</td>
+                    <td id="budgetItem">
+                        <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{CurrentProgress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{CurrentProgress}}%">
+                            {{CurrentProgress}}%
+                        </div>
+                    </div></td>
 
                     <td>
                         {{#linkTo route="editBudgetItem"}}
