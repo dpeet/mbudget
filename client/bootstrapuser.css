@@ -2,6 +2,12 @@
     padding: 2px;
 }
 
+#moneyItem {
+    text-align: right;
+    padding: 2px;
+    padding-right: 5%;
+}
+
 .header-text {  margin-top: 1.25em;  }
 
 

@@ -12,7 +12,7 @@ Template.BudgetList.helpers({
         return AmountToDateFunc(this.Name).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     },
     CurrentProgress:function(){
-        let result = AmountToDateFunc(this.Name)/parseFloat(this.Amount)*100.0
+        let result = Math.abs(AmountToDateFunc(this.Name)/parseFloat(this.Amount)*100.0)
         return result > 0 ? Math.round(result) : 0;
     },
     IncomeTotal:function(){
@@ -36,7 +36,7 @@ Template.BudgetList.helpers({
 });
 
 Template.BudgetList.events({
-    'click .budgetItem': function (e) {
+    'click #budgetItem': function (e) {
         var budgetItemId = this._id;
         Router.go('editBudgetItem', {_id: budgetItemId});
     },
