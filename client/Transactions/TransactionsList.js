@@ -3,10 +3,10 @@ Template.TransactionList.helpers({
         return Transactions.find({}, {sort: {TransactionDate: -1, EffectiveDate: -1, Description: 1} });
     },
     transactionDateFormat: function () {
-        return moment(this.TransactionDate).format("MM-DD-YYYY");
+        return (this.TransactionDate).toISOString().slice(0,10);
     },
     effectiveDateFormat: function () {
-        return moment(this.EffectiveDate).format("MM-DD-YYYY");
+        return (this.EffectiveDate ? (this.EffectiveDate).toISOString().slice(0,10) : "")
     },
     FormatCost:function(){
         return (this.Cost).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
