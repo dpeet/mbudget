@@ -1,5 +1,7 @@
 App.accessRule('*');
 
+App.setPreference('WebAppStartupTimeout', 60000);
+
 App.info({
      id: 'com.devonpeet.mbudget',
      name: 'mBudget',
@@ -7,7 +9,7 @@ App.info({
      author: "Dpeet",
      email: 'mbudgetadmin@gmail.com',
      website: 'mbudget.herokuapp.com',
-     version: '0.0.2'
+     version: '0.0.3'
  });
 
 // Set up resources such as icons and launch screens.
