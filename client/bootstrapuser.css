@@ -1,11 +1,31 @@
-#budgetItem{
-    padding: 2px;
+.progress{
+    margin: 2px;
 }
 
-#moneyItem {
+#budgetItem{
+    padding: 2px;
+    vertical-align: middle;
+}
+
+#budgetMoneyItem {
     text-align: right;
     padding: 2px;
     padding-right: 5%;
+    vertical-align: middle;
+}
+
+#transaction{
+    padding: 4px;
+    vertical-align: middle;
+
+}
+
+#transactionMoneyItem {
+    text-align: right;
+    padding: 4px;
+    padding-right: 5%;
+    vertical-align: middle;
+
 }
 
 .header-text {  margin-top: 1.25em;  }

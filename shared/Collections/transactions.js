@@ -43,13 +43,6 @@ Transactions.attachSchema(new SimpleSchema({
         type: Date,
         label: "Effective Date",
         optional:true,
-        autoValue: function() {
-            if(this.isSet){
-                return this.value;
-            } else {
-                return new Date();
-            }
-        },
         autoform: {
             afFieldInput: {
                 type: "bootstrap-datepicker"

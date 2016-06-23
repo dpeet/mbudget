@@ -27,15 +27,15 @@
                 <tbody>
                 {{#each transactions}}
                     <tr>
-                        <td class="transaction">{{Card}}</td>
-                        <td class="transaction">{{transactionDateFormat}}</td>
-                        <td class="transaction">{{effectiveDateFormat}}</td>
-                        <td class="transaction">{{Description}}</td>
-                        <td id="moneyItem" class="transaction">{{FormatCost}}</td>
-                        <td class="transaction">{{Category}}</td>
-                        <td class="transaction">{{Tags}}</td>
-                        <td class="transaction">{{Notes}}</td>
-                        <td>
+                        <td id="transaction">{{Card}}</td>
+                        <td id="transaction">{{transactionDateFormat}}</td>
+                        <td id="transaction">{{effectiveDateFormat}}</td>
+                        <td id="transaction">{{Description}}</td>
+                        <td id="transactionMoneyItem">{{FormatCost}}</td>
+                        <td id="transaction">{{Category}}</td>
+                        <td id="transaction">{{Tags}}</td>
+                        <td id="transaction">{{Notes}}</td>
+                        <td id="transaction">
                             {{#linkTo route="editTransaction"}}
                                 <i class="fa fa-pencil-square-o"> Edit</i>
                             {{/linkTo}}
