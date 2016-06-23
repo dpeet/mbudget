@@ -9,7 +9,7 @@ Template.BudgetList.helpers({
         return this.Amount.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     },
     FormatAmountToDate:function(){
-        return AmountToDateFunc(this.Name).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        return Math.abs(AmountToDateFunc(this.Name)).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     },
     CurrentProgress:function(){
         let result = Math.abs(AmountToDateFunc(this.Name)/parseFloat(this.Amount)*100.0)

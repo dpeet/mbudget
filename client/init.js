@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-    if (Meteor.isCordova) {
-        Meteor.subscribe("budgetItem");
-    }
+    // if (Meteor.isCordova) {
+    //     Meteor.subscribe("budgetItem");
+    // }
 });
