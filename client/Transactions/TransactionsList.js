@@ -15,7 +15,7 @@ Template.TransactionList.helpers({
 });
 
 Template.TransactionList.events({
-    'click .transaction': function (e) {
+    'click #transaction': function (e) {
         var transactionId = this._id;
         Router.go('editTransaction', {_id: transactionId});
     },
