@@ -1,7 +1,7 @@
 .progress{
     margin: 2px;
 }
-
+/*
 #budgetItem{
     padding: 2px;
     vertical-align: middle;
@@ -13,7 +13,7 @@
     padding-right: 5%;
     vertical-align: middle;
 }
-
+*/
 #transaction{
     padding: 4px;
     vertical-align: middle;
@@ -193,4 +193,98 @@ html {
 
 hr {
     clear: left;
+}
+
+.progress.thin-progress {
+    height: 7px;
+}
+
+
+.budget-items-list-card {
+    padding-left: 3%;
+    border-radius: 3%;
+    margin-top: .5%;
+    margin-bottom: .5%;
+
+}
+.budget-items-list {
+    padding: .25rem;
+}
+.budget-items-card-Income {
+    border-left: 4px solid #81C784;
+}
+.budget-items-card-Expense {
+    border-left: 4px solid #E57373;
+}
+.budget-items-list-container {
+    display: flex;
+}
+.budget-items-list-container div.progress {
+}
+.budget-items-list-name {
+    font-weight: bold;
+    border-right: 1px solid #d6e9c6;
+    padding-right: 1rem;
+    flex-grow: 1;
+}
+.budget-items-list-amount {
+    padding-left: 1rem;
+}
+.budget-items-list-tags {
+    text-transform: uppercase;
+    font-style: italic;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.budget-items-list-percent {
+    font-style: italic;
+    padding-left: 1rem;
+}
+.budget-items-list-card ul {
+    margin-bottom: 0px;
+}
+.data-long-card-hidden {
+    display: none;
+}
+.data-long-card {
+
+}
+
+.tx-list-card {
+    padding-left: 3%;
+    border-radius: 3%;
+    margin-top: .5%;
+    margin-bottom: .5%;
+}
+.tx-list-container {
+    display: flex;
+}
+.tx-list-desc {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 1rem;
+}
+.tx-list-amt {
+    padding-left: 1rem;
+}
+.tx-list-category {
+    text-transform: uppercase;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-right: .5rem;
+}
+.tx-list-tags {
+    text-transform: uppercase;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    font-style: italic;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    color: gray;
+}
+.tx-list-date {
+    padding-left: .5rem;
 }

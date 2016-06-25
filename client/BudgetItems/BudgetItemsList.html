@@ -1,113 +1,157 @@
 <template name="BudgetList">
     <div class="container-fluid">
-        <div class="col-xs-12">
+        <div class="hidden-xs">
+            <div class="col-xs-12">
 
-            <h1 class="pull-left">Budget</h1>
-            <div class="btn btn-primary pull-right newbtn">
-                {{#linkTo route="insertBudgetItem"}}
-                <i class="fa fa-plus white"> New Budget Item</i>
-                {{/linkTo}}
+                <h1 class="pull-left">Budget</h1>
+                <div class="btn btn-primary pull-right newbtn">
+                    {{#linkTo route="insertBudgetItem"}}
+                    <i class="fa fa-plus white"> New Budget Item</i>
+                    {{/linkTo}}
+                </div>
             </div>
-        </div>
-        <!--<div class="container-fluid">-->
-        <!--{{> takePhoto}}-->
-        <!--</div>-->
-        <hr>
-        <div class="col-xs-12">
-            <h3 class="pull-left col-xs-12">Incomes</h3>
-        </div>
-        <div class="col-xs-12">
+            <!--<div class="container-fluid">-->
+            <!--{{> takePhoto}}-->
+            <!--</div>-->
+            <hr>
+            <div class="col-xs-12">
+                <h3 class="pull-left col-xs-12">Incomes</h3>
+            </div>
+            <div class="col-xs-12">
 
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Tags</th>
-                    <th>Notes</th>
-                    <th>Amount</th>
-                    <th>Amount To Date</th>
-                    <th>Progress</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {{#each budgetItemsIncome}}
-                <tr>
-                    <td id="budgetItem">{{Name}}</td>
-                    <td id="budgetItem">{{Type}}</td>
-                    <td id="budgetItem">{{Tags}}</td>
-                    <td id="budgetItem">{{Notes}}</td>
-                    <td id="budgetMoneyItem">{{FormatAmount}}</td>
-                    <td id="budgetMoneyItem">{{FormatAmountToDate}}</td>
-                    <td id="budgetItem">
-                        <div class="progress">
+                <table class="table table-hover table-condensed">
+                <!-- TODO take out the silly ids -->
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Tags</th>
+                        <th>Notes</th>
+                        <th>Amount</th>
+                        <th>Amount To Date</th>
+                        <th>Progress</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each budgetItemsIncome}}
+                    <tr>
+                        <td id="budgetItem">{{Name}}</td>
+                        <td id="budgetItem">{{Type}}</td>
+                        <td id="budgetItem">{{Tags}}</td>
+                        <td id="budgetItem">{{Notes}}</td>
+                        <td id="budgetMoneyItem">{{FormatAmount}}</td>
+                        <td id="budgetMoneyItem">{{FormatAmountToDate}}</td>
+                        <td id="budgetItem">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{CurrentProgress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{CurrentProgress}}%">
+                                    {{CurrentProgress}}%
+                                </div>
+                            </div></td>
+                        <td id="budgetItem">
+                            {{#linkTo route="editBudgetItem"}}
+                            <i class="fa fa-pencil-square-o"> Edit</i>
+                            {{/linkTo}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-12">
+                <h5 class="totals "> Income Total: {{IncomeTotal}}; Spent to Date: {{IncomeSpentToDate}}</h5>
+            </div>
+
+            <div class="col-xs-12">
+                <h3 class="pull-left">Expenses</h3>
+            </div>
+            <div class="col-xs-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Tags</th>
+                        <th>Notes</th>
+                        <th>Amount</th>
+                        <th>Amount To Date</th>
+                        <th>Progress</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each budgetItemsExpense}}
+                    <tr>
+                        <td id="budgetItem">{{Name}}</td>
+                        <td id="budgetItem">{{Type}}</td>
+                        <td id="budgetItem">{{Tags}}</td>
+                        <td id="budgetItem">{{Notes}}</td>
+                        <td id="budgetMoneyItem">{{FormatAmount}}</td>
+                        <td id="budgetMoneyItem">{{FormatAmountToDate}}</td>
+                        <td id="budgetItem">
+                            <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuenow="{{CurrentProgress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{CurrentProgress}}%">
                                 {{CurrentProgress}}%
                             </div>
                         </div></td>
-                    <td id="budgetItem">
-                        {{#linkTo route="editBudgetItem"}}
-                        <i class="fa fa-pencil-square-o"> Edit</i>
-                        {{/linkTo}}
-                    </td>
-                </tr>
-                {{/each}}
-                </tbody>
-            </table>
-        </div>
-        <div class="col-xs-12">
-            <h5 class="totals "> Income Total: {{IncomeTotal}}; Spent to Date: {{IncomeSpentToDate}}</h5>
-        </div>
 
-        <div class="col-xs-12">
-            <h3 class="pull-left">Expenses</h3>
+                        <td id="budgetItem">
+                            {{#linkTo route="editBudgetItem"}}
+                            <i class="fa fa-pencil-square-o"> Edit</i>
+                            {{/linkTo}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-12">
+                <h5 class="totals"> Expense Total: {{ExpenseTotal}}; Spent to Date: {{ExpenseSpentToDate}}</h5>
+                <h5 class="totals"> Difference: {{Difference}}; Difference to Date: {{DifferencepentToDate}}</h5>
+                <hr>
+            </div>
+            {{> upload_budgetitems}}
         </div>
-        <div class="col-xs-12">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Tags</th>
-                    <th>Notes</th>
-                    <th>Amount</th>
-                    <th>Amount To Date</th>
-                    <th>Progress</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                {{#each budgetItemsExpense}}
-                <tr>
-                    <td id="budgetItem">{{Name}}</td>
-                    <td id="budgetItem">{{Type}}</td>
-                    <td id="budgetItem">{{Tags}}</td>
-                    <td id="budgetItem">{{Notes}}</td>
-                    <td id="budgetMoneyItem">{{FormatAmount}}</td>
-                    <td id="budgetMoneyItem">{{FormatAmountToDate}}</td>
-                    <td id="budgetItem">
-                        <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="{{CurrentProgress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{CurrentProgress}}%">
-                            {{CurrentProgress}}%
-                        </div>
-                    </div></td>
+        <div class="visible-xs-* hidden-sm hidden-md hidden-lg">
+            <div class="btn btn-primary pull-right newbtn" style="margin-bottom: 1rem;">
+                {{#linkTo route="insertBudgetItem"}}
+                <i class="fa fa-plus white"> New Budget Item</i>
+                {{/linkTo}}
+            </div>
+            {{#each budgetItemsIncome}}
+                {{>BudgetItemsListCard}}
+            {{/each}}
 
-                    <td id="budgetItem">
-                        {{#linkTo route="editBudgetItem"}}
-                        <i class="fa fa-pencil-square-o"> Edit</i>
-                        {{/linkTo}}
-                    </td>
-                </tr>
-                {{/each}}
-                </tbody>
-            </table>
+            {{#each budgetItemsExpense}}
+                {{>BudgetItemsListCard}}
+            {{/each}}
         </div>
-        <div class="col-xs-12">
-            <h5 class="totals"> Expense Total: {{ExpenseTotal}}; Spent to Date: {{ExpenseSpentToDate}}</h5>
-            <h5 class="totals"> Difference: {{Difference}}; Difference to Date: {{DifferencepentToDate}}</h5>
-            <hr>
-        </div>
-        {{> upload_budgetitems}}
     </div>
+</template>
+
+<template name="BudgetItemsListCard">
+<div class="col-xs-12 budget-items-list-card budget-items-card-{{Type}}">
+    <ul class="list-group">
+        <li class="list-group-item budget-items-list-container">
+            <div class="budget-items-list budget-items-list-name">{{Name}}</div>
+            <div class="budget-items-list budget-items-list-amount">${{FormatAmount}}</div>
+        </li>
+        <li class="list-group-item data-long-card data-long-card-hidden">
+            <div class="budget-items-list budget-items-list-container">
+                <p>This is extra long content</p>
+            </div>
+        </li>
+        <li class="list-group-item" >
+            <div class="budget-items-list-container">
+                <div class="budget-items-list budget-items-list-tags"><small>{{Tags}}</small></div>
+                <div class="budget-items-list budget-items-list-percent"><small>{{CurrentProgress}}%</small></div>
+            </div>
+            <div class="progress thin-progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{CurrentProgress}}" aria-valuemin="0" aria-valuemax="100" style="width:{{CurrentProgress}}%">
+                    <!-- {{CurrentProgress}}% -->
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 </template>
