@@ -6,20 +6,19 @@ Template.BudgetList.helpers({
         return BudgetItems.find({Type:"Expense"}, {sort: {Name: 1} });
     },
     FormatAmount:function(){
-        return this.Amount.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+        return FormatAmountFunc(this.Amount);
     },
     FormatAmountToDate:function(){
         return Math.abs(AmountToDateFunc(this.Name)).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     },
     CurrentProgress:function(){
-        let result = Math.abs(AmountToDateFunc(this.Name)/parseFloat(this.Amount)*100.0)
-        return result > 0 ? Math.round(result) : 0;
+        CurrentProgressFunc(this.Name, this.Amount);
     },
     IncomeTotal:function(){
         return IncomeTotalFunc();
     },
     ExpenseTotal:function(){
-       return ExpenseTotalFunc();
+        return ExpenseTotalFunc();
     },
     Difference:function(){
         return IncomeTotalFunc() - ExpenseTotalFunc();
@@ -41,6 +40,32 @@ Template.BudgetList.events({
         Router.go('editBudgetItem', {_id: budgetItemId});
     },
 });
+
+Template.BudgetItemsListCard.helpers({
+    FormatAmount:function(){
+        return FormatAmountFunc(this.Amount);
+    },
+    CurrentProgress:function(){
+        return CurrentProgressFunc(this.Name, this.Amount);
+    },
+});
+
+Template.BudgetItemsListCard.events({
+    'click .budget-items-list-card': function (e) {
+        var budgetItemId = this._id;
+        Router.go('editBudgetItem', {_id: budgetItemId});
+        // TODO change to have long form of the card?
+    },
+});
+
+FormatAmountFunc = function(amt){
+    return amt.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+};
+
+CurrentProgressFunc = function(name, amt){
+    let result = Math.abs(AmountToDateFunc(name)/parseFloat(amt)*100.0)
+    return result > 0 ? Math.round(result) : 0;
+};
 
 IncomeTotalFunc = function(){
     let incomeTotal = 0;
