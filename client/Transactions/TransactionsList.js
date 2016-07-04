@@ -21,6 +21,7 @@ Template.TransactionList.events({
     },
 });
 
+
 Template.TransactionListCard.helpers({
     // transactions: function () {
     //     return Transactions.find({}, {sort: {TransactionDate: -1, EffectiveDate: -1, Description: 1} });
@@ -34,6 +35,13 @@ Template.TransactionListCard.helpers({
     // FormatCost:function(){
     //     return (this.Cost).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     // }
+});
+
+Template.TransactionListCard.events({
+    'click .tx-list-card': function (e) {
+        var transactionId = this._id;
+        Router.go('editTransaction', {_id: transactionId});
+    },
 });
 
 // Template.takePhoto.helpers({
