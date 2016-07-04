@@ -276,6 +276,7 @@ hr {
 }
 .tx-list-amt {
     padding-left: 1rem;
+    font-weight: bold;
 }
 .tx-list-category {
     text-transform: uppercase;

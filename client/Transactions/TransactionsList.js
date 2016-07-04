@@ -23,6 +23,13 @@ Template.TransactionList.events({
 
 
 Template.TransactionListCard.helpers({
+    FormatCost:function(){
+        return (this.Cost).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+    },
+    transactionDateFormat: function () {
+        return (this.TransactionDate).toISOString().slice(0,10);
+    },
     // transactions: function () {
     //     return Transactions.find({}, {sort: {TransactionDate: -1, EffectiveDate: -1, Description: 1} });
     // },
