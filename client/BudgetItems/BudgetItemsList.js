@@ -12,7 +12,7 @@ Template.BudgetList.helpers({
         return Math.abs(AmountToDateFunc(this.Name)).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     },
     CurrentProgress:function(){
-        CurrentProgressFunc(this.Name, this.Amount);
+        return CurrentProgressFunc(this.Name, this.Amount);
     },
     IncomeTotal:function(){
         return IncomeTotalFunc();
