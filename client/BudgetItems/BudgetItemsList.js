@@ -29,8 +29,15 @@ Template.BudgetList.helpers({
     ExpenseSpentToDate:function(){
         return ExpenseSpentToDateFunc()
     },
+    IncomeDiff:function(){
+        return (IncomeTotalFunc() - IncomeSpentToDateFunc()).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    },
+    ExpenseDiff:function(){
+        return (ExpenseTotalFunc() - ExpenseSpentToDateFunc()).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+    },
+
     DifferenceSpentToDate:function(){
-        return IncomeSpentToDateFunc() + ExpenseSpentToDateFunc();
+        return (IncomeSpentToDateFunc() + ExpenseSpentToDateFunc()).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
     },
 });
 
@@ -80,7 +87,7 @@ ExpenseTotalFunc = function(){
     for(let item of BudgetItems.find({Type:"Expense"}).fetch()){
         expenseTotal += item.Amount;
     }
-    return expenseTotal;
+    return expenseTotal*-1;
 };
 
 AmountToDateFunc = function(name){
