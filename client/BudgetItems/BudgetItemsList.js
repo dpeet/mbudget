@@ -21,7 +21,7 @@ Template.BudgetList.helpers({
         return ExpenseTotalFunc();
     },
     Difference:function(){
-        return IncomeTotalFunc() - ExpenseTotalFunc();
+        return IncomeTotalFunc() + ExpenseTotalFunc();
     },
     IncomeSpentToDate:function(){
         return IncomeSpentToDateFunc()
@@ -29,8 +29,8 @@ Template.BudgetList.helpers({
     ExpenseSpentToDate:function(){
         return ExpenseSpentToDateFunc()
     },
-    DifferencepentToDate:function(){
-        return IncomeSpentToDateFunc() - ExpenseSpentToDateFunc();
+    DifferenceSpentToDate:function(){
+        return IncomeSpentToDateFunc() + ExpenseSpentToDateFunc();
     },
 });
 
