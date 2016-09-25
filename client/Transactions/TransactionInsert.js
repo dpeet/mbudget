@@ -17,15 +17,14 @@ AutoForm.hooks({
                     }
                 }
             }
-            if(!(doc.Card == undefined)) {
-                var cardArray = User_Data.findOne({}, {fields: {Cards: 1}})["Cards"]
-                var hasCurrCardForm = cardArray.indexOf(doc.Card) > -1
-                if (!hasCurrCardForm) {
-                    Meteor.call("addCard", doc.Card, doc.Card);
+            if(!(doc.Account == undefined)) {
+                var accountArray = User_Data.findOne({}, {fields: {Account: 1}})["Account"]
+                var Account = accountArray.indexOf(doc.Account) > -1
+                if (!hasCurrAccountForm) {
+                    Meteor.call("addAccount", doc.Account, doc.Account);
                 }
             }
             Router.go('transactionList');
         }
     }
 });
-
