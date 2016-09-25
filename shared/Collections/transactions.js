@@ -10,9 +10,9 @@ Transactions.attachSchema(new SimpleSchema({
             omit: true
         }
     },
-    Card:{  //TODO think about how to do this
+    Account:{  //TODO think about how to do this
         type:String,
-        label: "Card*",
+        label: "Account*",
         autoform: {
             type: "typeahead",
             options: function () {
