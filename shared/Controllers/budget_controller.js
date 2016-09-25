@@ -1,4 +1,4 @@
-BudgetItemController = RouteController.extend({
+BudgetController = RouteController.extend({
     subscriptions: function () {
         Meteor.subscribe("Budgets", Meteor.userId());
         Meteor.subscribe("BudgetItems", Meteor.userId());
@@ -7,18 +7,15 @@ BudgetItemController = RouteController.extend({
 
     },
     data: function () {
-        return BudgetItems.findOne({_id: this.params._id});
+        return Budgets.findOne({_id: this.params._id});
     },
     insert: function () {
         SimpleSchema.debug = true
-        this.render("InsertBudgetItem");
-    },
-    list: function() {
-        this.render("BudgetList");
+        this.render("InsertBudgets");
     },
     edit: function() {
         // SimpleSchema.debug = true;
-        this.render("editBudgetItem");
+        this.render("editBudgets");
     },
 
 });

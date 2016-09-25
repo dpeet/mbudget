@@ -55,6 +55,32 @@ Router.route('/edit_transaction/:_id', {
     where: 'client'
 });
 
+// ---------------
+
+Router.route('/insert_budget', {
+    name: 'insertBudget',
+    controller: 'BudgetController',
+    action: 'insert',
+    where: 'client'
+});
+
+Router.route('budget_list', {
+    name: 'budgetList',
+    controller: 'BudgetController',
+    action: 'list',
+    where: 'client'
+});
+
+Router.route('/edit_budget/:_id', {
+    name: 'editBudget',
+    controller: 'BudgetController',
+    action: 'edit',
+    where: 'client'
+});
+
+// ---------------
+
+
 Router.route('/account', {
     name: 'account_settings',
     controller: 'AccountController',

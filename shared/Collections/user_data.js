@@ -40,7 +40,7 @@ if (Meteor.isServer) {
 
     Meteor.methods({
         addTag: function (label, value) {
-            
+
             if (value != null) {
                 console.log("adding Tag " + label + " " + value);
                 User_Data.update({createdBy: Meteor.userId()}, {$push: {Tags: value}})
@@ -67,6 +67,7 @@ if (Meteor.isServer) {
         }
     })
 }
+
 if (Meteor.isClient) {
     Ground.Collection(User_Data);
 }

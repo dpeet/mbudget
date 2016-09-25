@@ -48,7 +48,7 @@ BudgetItems.attachSchema(new SimpleSchema({
             },
         }
     },
-    
+
     Notes:{
         type:String,
         optional:true,
@@ -58,7 +58,13 @@ BudgetItems.attachSchema(new SimpleSchema({
         decimal: true,
         defaultValue: 0,
     },
-    //TODO Calculated Stuff
+    budgetID:{
+        type:String,
+        optional:false,
+        autoform: {
+            omit: true
+        }
+    }
 }));
 
 if (Meteor.isServer){
@@ -77,5 +83,4 @@ if (Meteor.isServer){
 
 if (Meteor.isClient) {
     Ground.Collection(BudgetItems);
-    Ground.Collection(Meteor.users);
 }
