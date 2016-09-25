@@ -5,7 +5,7 @@ Accounts.onCreateUser(function (options, user) {
     console.log(user._id);
     User_Data.insert({
         createdBy: user._id,
-        Cards: ["Bank", "Credit Card"],
+        Account: ["Bank", "Credit Card"],
         Tags: ["Unknown"],
     });
     console.log(User_Data.find().fetch())

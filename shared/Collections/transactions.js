@@ -16,8 +16,8 @@ Transactions.attachSchema(new SimpleSchema({
         autoform: {
             type: "typeahead",
             options: function () {
-                var cardsArray = User_Data.findOne(Meteor.userId, {fields: {Cards: 1}})["Cards"]
-                return cardsArray.map(function (d) {
+                var accountArray = User_Data.findOne(Meteor.userId, {fields: {Account: 1}})["Account"]
+                return accountArray.map(function (d) {
                     return {label: d, value: d};
                 });
             },

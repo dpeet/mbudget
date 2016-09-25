@@ -4,7 +4,7 @@ User_Data.attachSchema(new SimpleSchema({
     createdBy: {
         type: String,
     },
-    Cards: {
+    Account: {
         type: [String],
         optional: true,
         autoform: {
@@ -40,7 +40,6 @@ if (Meteor.isServer) {
 
     Meteor.methods({
         addTag: function (label, value) {
-            
             if (value != null) {
                 console.log("adding Tag " + label + " " + value);
                 User_Data.update({createdBy: Meteor.userId()}, {$push: {Tags: value}})
@@ -48,21 +47,21 @@ if (Meteor.isServer) {
         },
         removeTag: function (label, value, userID) {
             if (!(value == null)) {
-                console.log("removing location " + label + " " + value);
+                console.log("removing Tag " + label + " " + value);
                 return User_Data.update({createdBy: Meteor.userId()}, {$pull: {Tags: value}})
             }
         },
-        addCard: function (label, value) {
+        addAccount: function (label, value) {
 
             if (value != null) {
-                console.log("adding Tag " + label + " " + value);
-                User_Data.update({createdBy: Meteor.userId()}, {$push: {Tags: value}})
+                console.log("adding Account " + label + " " + value);
+                User_Data.update({createdBy: Meteor.userId()}, {$push: {Account: value}})
             }
         },
-        removeCard: function (label, value, userID) {
+        removeAccount: function (label, value, userID) {
             if (!(value == null)) {
-                console.log("removing location " + label + " " + value);
-                return User_Data.update({createdBy: Meteor.userId()}, {$pull: {Tags: value}})
+                console.log("removing Account " + label + " " + value);
+                return User_Data.update({createdBy: Meteor.userId()}, {$pull: {Account: value}})
             }
         }
     })
