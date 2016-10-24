@@ -3,7 +3,7 @@ Meteor.methods({
         console.log(data)
         for ( let i = 0; i < data.length; i++ ) {
             let item   = data[ i ],
-                exists = Transactions.findOne( { Description: item.Description, createdBy: userID} );
+            exists = Transactions.findOne( { Description: item.Description, createdBy: userID} );
             if ( !exists ) {
                 Transactions.insert( item );
             } else {
@@ -14,7 +14,7 @@ Meteor.methods({
     parseBudgetItemUpload( data, userID) {
         for ( let i = 0; i < data.length; i++ ) {
             let item   = data[ i ],
-                exists = BudgetItems.findOne( { Name: item.Name, createdBy: userID} );
+            exists = BudgetItems.findOne( { Name: item.Name, createdBy: userID} );
             if ( !exists ) {
                 BudgetItems.insert( item );
             } else {
